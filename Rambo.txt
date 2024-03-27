@@ -1,0 +1,34 @@
+//Pacote padrão
+package br.com.etec;
+import robocode. *;
+import java.awt.Color;
+
+public class RamboBoladao extends Robot
+{
+    public void run(){
+        //Cor do Robo
+        setBodyColor(new Color(237, 25, 12));
+
+        while(true){
+            //Anda para frente 100 
+            ahead(100);
+            //vire a arma para direita
+            turnGunRight(360);
+            //Ande para tras 100
+            turnGunRight(360);
+        }
+    }
+    //funcao que identifica o robo e faz algo
+    public void onScannerdRobot(ScannedRobotEvent e){
+        fire(1);//atirar
+    }
+   //funcao que detecta levar tiro no seu robo
+    public void onHitByBullet(HitByBulletEvent e) {
+		back(10);//voltar
+	}
+
+    //funcao que detecta quando robo bater parede
+    public void onHitWall(HitWallEvent e) {
+		back(20);//voltar
+	}
+}
